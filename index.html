@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vitu Studio - Portfólio de Vítor Gabriel">
+    <title>Vitu Studio | Vítor Souza</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo" id="logoLink">
+                    <div class="logo-mark">
+                        <img src="foto-perfil.jpg" alt="V" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                    </div>
+                    <div class="logo-text">
+                        <span>Vitu Studio</span>
+                        <small>Vítor Gabriel</small>
+                    </div>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="#trabalhos">Trabalhos</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#contato" class="nav-cta">Contato</a></li>
+                </ul>
+                <button class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">✦ Disponível para projetos</div>
+            <h1 class="hero-title">
+                Criando experiências<br>
+                visuais <span class="accent">memoráveis</span>
+            </h1>
+            <p class="hero-subtitle">
+                Ilustração Digital · Edição · Identidade Visual
+            </p>
+            <div class="hero-actions">
+                <a href="#trabalhos" class="btn-primary">Ver Portfólio</a>
+                <a href="#contato" class="btn-secondary">Fale Comigo →</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects" id="trabalhos">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Portfólio</div>
+                <h2>Projetos Selecionados</h2>
+            </div>
+            <div class="filter-bar">
+                <button class="filter-btn active" data-category="todos">Todos</button>
+                <button class="filter-btn" data-category="ilustracao">Ilustração</button>
+                <button class="filter-btn" data-category="edicao">Edição</button>
+                <button class="filter-btn" data-category="identidade">Identidade</button>
+            </div>
+            <div class="projects-grid" id="grid"></div>
+        </div>
+    </section>
+
+    <section class="about" id="sobre">
+        <div class="container-small">
+            <div class="about-layout">
+                <div class="about-visual">
+                    <div class="about-avatar">
+                        <img src="foto-perfil.jpg" alt="Vítor Gabriel" style="width: 100%; height: 100%; object-fit: cover; border-radius: 24px;">
+                    </div>
+                    <div class="about-badge">3+ anos</div>
+                </div>
+                <div class="about-content">
+                    <div class="section-tag">Sobre</div>
+                    <h2>Vítor Gabriel</h2>
+                    <p class="lead">
+                        A pessoa por trás do <strong>Vitu Studio</strong>. Há mais de 3 anos 
+                        desenvolvendo e aprimorando habilidades em Ilustração e Edição.
+                    </p>
+                    <blockquote>
+                        "Não comecei com dom. Comecei com Decisão."
+                    </blockquote>
+                    <p>
+                        Uma iniciativa longa e difícil no início. Mas segui em frente 
+                        e decidi enfrentar o medo de errar e falhar, aprendendo a realizar 
+                        meu sonho.
+                    </p>
+                    <p>
+                        Transformo "Amo meu trabalho" em resultados concretos. Minha missão 
+                        no <strong>@studio_vitu</strong> é unir fé e valores à excelência 
+                        técnica que seu projeto merece.
+                    </p>
+                    <div class="about-quote">
+                        <svg width="40" height="32" viewBox="0 0 40 32" fill="none">
+                            <path d="M0 18.3636V32H13.6364V18.3636H4.54545C4.54545 11.5364 7.63636 9.09091 13.6364 9.09091V0C4.54545 0 0 6.36364 0 18.3636Z" fill="currentColor"/>
+                            <path d="M26.3636 18.3636V32H40V18.3636H30.9091C30.9091 11.5364 34 9.09091 40 9.09091V0C30.9091 0 26.3636 6.36364 26.3636 18.3636Z" fill="currentColor"/>
+                        </svg>
+                        <p>Dedicação em cada detalhe, compromisso com a verdade.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="servicos">
+        <div class="container">
+            <div class="section-header centered">
+                <div class="section-tag">Serviços</div>
+                <h2>Como posso ajudar</h2>
+                <p>Soluções criativas para dar vida ao seu projeto</p>
+            </div>
+            <div class="services-list">
+                <div class="service-item">
+                    <div class="service-header">
+                        <span class="service-num">01</span>
+                        <h3>Ilustrações Autorais</h3>
+                    </div>
+                    <p>Artes exclusivas que dão personalidade ao seu projeto.</p>
+                    <div class="service-icon">🎨</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-header">
+                        <span class="service-num">02</span>
+                        <h3>Edições</h3>
+                    </div>
+                    <p>Cortes precisos para redes sociais.</p>
+                    <div class="service-icon">🎬</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-header">
+                        <span class="service-num">03</span>
+                        <h3>Identidade Visual</h3>
+                    </div>
+                    <p>Marcas marcantes que comunicam seu propósito.</p>
+                    <div class="service-icon">✨</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-header">
+                        <span class="service-num">04</span>
+                        <h3>Suporte em T.I.</h3>
+                    </div>
+                    <p>Otimização de processos digitais.</p>
+                    <div class="service-icon">💻</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-header">
+                        <span class="service-num">05</span>
+                        <h3>Conteúdo Estratégico</h3>
+                    </div>
+                    <p>Designs pensados para engajar e converter nas redes sociais.</p>
+                    <div class="service-icon">📱</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-showcase">
+        <div class="container-small">
+            <div class="section-tag">Edições</div>
+            <h2>Veja meu trabalho em ação</h2>
+            <p class="video-intro">
+                Exemplo de edição dinâmica e profissional para redes sociais
+            </p>
+            <div class="video-wrapper">
+                <div class="video-container-vertical">
+                    <video class="video-player" controls muted poster="video-thumbnail.jpg" preload="metadata">
+                        <source src="edicao.mp4" type="video/mp4">
+                        <source src="edicao.webm" type="video/webm">
+                        Seu navegador não suporta o elemento de vídeo.
+                    </video>
+                    <div class="video-overlay">
+                        <button class="play-button" aria-label="Reproduzir vídeo">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="40" r="40" fill="rgba(255, 107, 53, 0.9)"/>
+                                <path d="M32 25L55 40L32 55V25Z" fill="white"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="video-info">
+                <div class="video-stat">
+                    <span class="stat-icon">🎬</span>
+                    <div>
+                        <strong>Edição Profissional</strong>
+                        <p>Cortes precisos e transições suaves</p>
+                    </div>
+                </div>
+                <div class="video-stat">
+                    <span class="stat-icon">⚡</span>
+                    <div>
+                        <strong>Alta Performance</strong>
+                        <p>Otimizado para todas as plataformas</p>
+                    </div>
+                </div>
+                <div class="video-stat">
+                    <span class="stat-icon">🎨</span>
+                    <div>
+                        <strong>Design Criativo</strong>
+                        <p>Identidade visual única</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contato">
+        <div class="container-small">
+            <div class="section-tag">Contato</div>
+            <h2>Vamos trabalhar juntos?</h2>
+            <p class="contact-intro">
+                Se busca uma parceria que valoriza o processo tanto quanto o resultado,
+                você está no lugar certo.
+            </p>
+            <div class="contact-grid">
+                <a href="mailto:vitustudio2026@gmail.com" class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <span class="contact-label">Email</span>
+                    <span class="contact-value">vitustudio2026@gmail.com</span>
+                </a>
+                <a href="https://wa.me/554399674581" class="contact-card">
+                    <div class="contact-icon">💬</div>
+                    <span class="contact-label">WhatsApp</span>
+                    <span class="contact-value">Enviar mensagem</span>
+                </a>
+            </div>
+            <div class="social-bar">
+                <a href="https://instagram.com/studio_vitu" target="_blank">Instagram</a>
+                <a href="https://www.youtube.com/@Vitu_Studio" target="_blank">YouTube</a>
+                <a href="https://linkedin.com/company/vitu-studio" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">Vitu Studio</div>
+                    <p>Dedicação em cada detalhe, compromisso com a verdade.</p>
+                </div>
+                <div class="footer-copy">
+                    <p>&copy; 2026 Vítor Gabriel. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="portfolioModal" class="portfolio-modal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <button class="modal-prev">‹</button>
+            <button class="modal-next">›</button>
+            <img id="modalImage" src="" alt="Portfólio">
+            <div class="modal-counter"><span id="modalCounter">1 / 6</span></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
