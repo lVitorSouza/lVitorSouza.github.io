@@ -106,7 +106,7 @@ const projects = [
         image: '27.jpg'
     },
     
-    // IDENTIDADE VISUAL (6 projetos)
+    // IDENTIDADE VISUAL (10 projetos)
     {
         category: 'identidade',
         title: 'Dicas para sua segurança na internet',
@@ -142,7 +142,31 @@ const projects = [
         title: '3 Dicas para proteger suas senhas',
         description: 'Recomendações para proteção de dados pessoais',
         image: 'imagem6.png'
-    }
+    },
+       {
+        category: 'identidade',
+        title: 'Design de Logotipo Froggi',
+        description: 'Design criativo para identidade visual de marca',
+        image: 'logotipofroggi.png'
+    },
+    {
+        category: 'identidade',
+        title: 'Dicas para sua segurança na internet',
+        description: 'Design criativo para identidade visual de marca',
+        image: 'pequenoss.png'
+    },
+    {
+        category: 'identidade',
+        title: 'Design de Logomarca para P & S',
+        description: 'Ícone para a construção da logomarca',
+        image: 'froggi.png'
+    },
+    {
+        category: 'identidade',
+        title: 'Design de Logomarca para P & S',
+        description: 'Ícone para a construção da logomarca',
+        image: 'froggi learnirg.png'
+    },
 ];
 
 // ========== RENDER PROJECTS ==========
