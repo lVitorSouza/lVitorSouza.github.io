@@ -3,31 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vitu Studio — Vítor Gabriel</title>
+  <title>Vitu Studio — Vítor Gabriel | Ilustração & Edição</title>
+<a href="briefing.html" class="btn-primary" style="margin-top:3rem;display:inline-block">
+  Solicitar Projeto
+</a>
+  <!-- SEO -->
+  <meta name="description" content="Vitu Studio — Portfólio de Vítor Gabriel. Ilustração digital, edição de vídeo e identidade visual em Londrina, PR." />
+  <meta name="keywords" content="ilustração, edição de vídeo, identidade visual, design, Londrina, Vitu Studio, Vítor Gabriel" />
+  <meta name="author" content="Vítor Gabriel" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph (WhatsApp, Instagram, LinkedIn preview) -->
+  <meta property="og:title" content="Vitu Studio — Vítor Gabriel" />
+  <meta property="og:description" content="Ilustração digital, edição de vídeo e identidade visual com propósito." />
+  <meta property="og:image" content="vitu-studio-banner.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+
+  <!-- Performance: preload first hero image -->
+  <link rel="preload" as="image" href="guerreiro.jpg" fetchpriority="high" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
   <style>
-    /* ─── RESET & BASE ─── */
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --black:   #0d0d0d;
-      --white:   #f8f6f2;
-      --accent:  #b8a898;
-      --muted:   #888480;
-      --border:  rgba(13, 13, 13, 0.1);
-      --nav-h:   72px;
+      --black:  #0d0d0d;
+      --white:  #f8f6f2;
+      --accent: #b8a898;
+      --muted:  #888480;
+      --border: rgba(13,13,13,0.1);
+      --nav-h:  72px;
     }
 
-    html {
-      font-size: 16px;
-      scroll-behavior: smooth;
-    }
+    html { font-size: 16px; scroll-behavior: smooth; }
 
     body {
       font-family: 'Jost', sans-serif;
@@ -40,776 +51,414 @@
 
     a { text-decoration: none; color: inherit; }
 
-    /* ─── NAV ─── */
+    /* NAV */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      height: var(--nav-h);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100; height: var(--nav-h);
+      display: flex; align-items: center; justify-content: space-between;
       padding: 0 4rem;
       background: var(--white);
       border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s;
     }
-
     .nav-logo {
       font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: 1.1rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
+      font-weight: 300; font-size: 1.1rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
     }
-
-    .nav-logo em {
-      font-style: italic;
-      font-weight: 400;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 3rem;
-      list-style: none;
-    }
-
+    .nav-logo em { font-style: italic; font-weight: 400; }
+    .nav-links { display: flex; gap: 3rem; list-style: none; }
     .nav-links a {
-      font-size: 0.67rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
-      transition: color 0.3s;
+      font-size: 0.67rem; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--muted); transition: color 0.3s;
     }
-
     .nav-links a:hover { color: var(--black); }
-
     .nav-status {
-      font-size: 0.62rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      font-size: 0.62rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--accent);
+      display: flex; align-items: center; gap: 0.5rem;
     }
-
     .nav-status::before {
-      content: '';
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: #9cbc8a;
-      display: inline-block;
+      content: ''; width: 5px; height: 5px; border-radius: 50%;
+      background: #9cbc8a; display: inline-block;
       animation: pulse 2.5s ease-in-out infinite;
     }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50%       { opacity: 0.4; }
-    }
-
-    /* ─── HERO ─── */
+    /* HERO */
     .hero {
       min-height: 100vh;
-      padding-top: var(--nav-h);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding-bottom: 5rem;
-      padding-left: 4rem;
-      padding-right: 4rem;
+      padding: var(--nav-h) 4rem 5rem;
+      display: flex; flex-direction: column; justify-content: flex-end;
       position: relative;
     }
-
     .hero-side-tag {
-      position: absolute;
-      top: 50%;
-      right: 3.5rem;
+      position: absolute; top: 50%; right: 3.5rem;
       transform: translateY(-50%) rotate(90deg);
-      transform-origin: center center;
-      font-size: 0.6rem;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--muted);
-      white-space: nowrap;
+      font-size: 0.6rem; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--muted); white-space: nowrap;
     }
-
     .hero-eyebrow {
-      font-size: 0.65rem;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 2rem;
+      font-size: 0.65rem; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 2rem;
     }
-
     .hero-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(3.5rem, 6.5vw, 6.5rem);
-      font-weight: 300;
-      line-height: 1.0;
-      letter-spacing: -0.01em;
-      color: var(--black);
-      max-width: 820px;
+      font-weight: 300; line-height: 1.0;
+      color: var(--black); max-width: 820px;
     }
-
-    .hero-title em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
+    .hero-title em { font-style: italic; color: var(--accent); }
     .hero-sub {
-      margin-top: 2.5rem;
-      font-size: 0.75rem;
-      letter-spacing: 0.18em;
-      color: var(--muted);
-      text-transform: uppercase;
+      margin-top: 2.5rem; font-size: 0.75rem;
+      letter-spacing: 0.18em; color: var(--muted); text-transform: uppercase;
     }
-
     .hero-sub span { margin: 0 1.2rem; opacity: 0.35; }
-
+    .hero-cta-row { margin-top: 3.5rem; display: flex; gap: 2rem; align-items: center; }
+    .btn-primary {
+      font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--white); background: var(--black); border: 1px solid var(--black);
+      padding: 1rem 2.5rem; cursor: pointer;
+      transition: background 0.3s, color 0.3s; display: inline-block;
+    }
+    .btn-primary:hover { background: transparent; color: var(--black); }
+    .btn-ghost {
+      font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted); display: flex; align-items: center; gap: 0.5rem; transition: color 0.3s;
+    }
+    .btn-ghost:hover { color: var(--black); }
+    .btn-ghost::after { content: '↗'; font-size: 0.8rem; }
     .hero-scroll {
-      position: absolute;
-      bottom: 2.5rem;
-      right: 4rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
+      position: absolute; bottom: 2.5rem; right: 4rem;
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
     }
-
     .hero-scroll span {
-      font-size: 0.58rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
-      writing-mode: vertical-rl;
+      font-size: 0.58rem; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--muted); writing-mode: vertical-rl;
     }
-
     .hero-scroll-line {
-      width: 1px;
-      height: 60px;
+      width: 1px; height: 60px;
       background: linear-gradient(to bottom, var(--border), transparent);
     }
 
-    .hero-cta-row {
-      margin-top: 3.5rem;
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .btn-primary {
-      font-size: 0.68rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--white);
-      background: var(--black);
-      border: 1px solid var(--black);
-      padding: 1rem 2.5rem;
-      cursor: pointer;
-      transition: background 0.3s, color 0.3s;
-      display: inline-block;
-    }
-
-    .btn-primary:hover {
-      background: transparent;
-      color: var(--black);
-    }
-
-    .btn-ghost {
-      font-size: 0.68rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: color 0.3s;
-    }
-
-    .btn-ghost:hover { color: var(--black); }
-    .btn-ghost::after { content: '↗'; font-size: 0.8rem; }
-
-    /* ─── SECTION BASE ─── */
+    /* SECTION */
     section { padding: 7rem 4rem; }
-
     .section-label {
-      font-size: 0.6rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 4.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
+      font-size: 0.6rem; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 4.5rem; display: flex; align-items: center; gap: 1.5rem;
     }
+    .section-label::after { content: ''; width: 50px; height: 1px; background: var(--border); }
 
-    .section-label::after {
-      content: '';
-      width: 50px;
-      height: 1px;
-      background: var(--border);
-    }
-
-    /* ─── PORTFOLIO ─── */
+    /* PORTFOLIO */
     .portfolio { border-top: 1px solid var(--border); }
-
     .portfolio-filter {
-      display: flex;
-      gap: 2.5rem;
-      margin-bottom: 4rem;
-      list-style: none;
+      display: flex; gap: 2.5rem; margin-bottom: 4rem; list-style: none;
     }
-
     .portfolio-filter li {
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      cursor: pointer;
-      padding-bottom: 0.3rem;
+      font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted); cursor: pointer; padding-bottom: 0.3rem;
       border-bottom: 1px solid transparent;
-      transition: color 0.3s, border-color 0.3s;
+      transition: color 0.3s, border-color 0.3s; user-select: none;
     }
-
     .portfolio-filter li.active,
-    .portfolio-filter li:hover {
-      color: var(--black);
-      border-color: var(--black);
-    }
+    .portfolio-filter li:hover { color: var(--black); border-color: var(--black); }
 
-    /* ─── PORTFOLIO GRID — DYNAMIC ─── */
+    /* GRID */
     #grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5px;
-    }
-
-    /* First card spans 2 columns */
-    #grid .project-card:first-child {
-      grid-column: span 2;
+      gap: 2px;
     }
 
     .project-card {
       position: relative;
       overflow: hidden;
       cursor: pointer;
-      background: #e8e4de;
-      aspect-ratio: 4/3;
+      background: #e2ddd7;
     }
 
-    /* First card has no fixed aspect-ratio so it fills height naturally */
-    #grid .project-card:first-child {
-      aspect-ratio: unset;
-      min-height: 320px;
+    /* Aspect ratio trick — all cards 4:3 */
+    .project-card::before {
+      content: '';
+      display: block;
+      padding-top: 75%;
     }
 
+    /* First card: 2 columns wide, 16:9 */
+    #grid .project-card:nth-child(1) {
+      grid-column: span 2;
+    }
+    #grid .project-card:nth-child(1)::before {
+      padding-top: 56.25%;
+    }
+
+    /* Image fills the card */
     .project-image {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.7s ease;
-      /* Ensure image fills card even if aspect ratios differ */
-      position: absolute;
-      inset: 0;
+      transition: transform 0.75s cubic-bezier(0.25,0.46,0.45,0.94);
     }
+    .project-card:hover .project-image { transform: scale(1.06); }
 
-    /* Fallback background color while image loads */
-    .project-card::before {
-      content: '';
-      display: block;
-      padding-top: 75%; /* 4:3 */
-    }
-
-    #grid .project-card:first-child::before {
-      padding-top: 0;
-      display: none;
-    }
-
-    .project-card:hover .project-image {
-      transform: scale(1.05);
-    }
-
-    /* Overlay */
+    /* Overlay gradient + text */
     .project-info {
-      position: absolute;
-      inset: 0;
-      background: rgba(13,13,13,0);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 1.5rem;
-      transition: background 0.4s;
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 1.4rem 1.5rem;
+      background: linear-gradient(to top, rgba(13,13,13,0.72) 0%, rgba(13,13,13,0) 55%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
     }
-
-    .project-card:hover .project-info {
-      background: rgba(13,13,13,0.5);
-    }
+    .project-card:hover .project-info { opacity: 1; }
 
     .project-category {
-      font-size: 0.6rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: rgba(248,246,242,0.6);
-      margin-bottom: 0.3rem;
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.35s, transform 0.35s;
+      font-size: 0.58rem; letter-spacing: 0.24em;
+      text-transform: uppercase; color: rgba(248,246,242,0.55);
+      margin-bottom: 0.25rem;
+      transform: translateY(8px); transition: transform 0.35s ease;
     }
+    .project-card:hover .project-category { transform: translateY(0); }
 
     .project-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem;
-      font-weight: 300;
-      color: var(--white);
-      line-height: 1.2;
+      font-size: 1.1rem; font-weight: 300; color: var(--white); line-height: 1.2;
       margin-bottom: 0.2rem;
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.35s 0.04s, transform 0.35s 0.04s;
+      transform: translateY(8px); transition: transform 0.35s 0.04s ease;
     }
+    .project-card:hover .project-title { transform: translateY(0); }
 
     .project-desc {
-      font-size: 0.68rem;
-      color: rgba(248,246,242,0.55);
-      letter-spacing: 0.03em;
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.35s 0.08s, transform 0.35s 0.08s;
+      font-size: 0.67rem; color: rgba(248,246,242,0.5);
+      transform: translateY(8px); transition: transform 0.35s 0.08s ease;
     }
+    .project-card:hover .project-desc { transform: translateY(0); }
 
-    .project-card:hover .project-category,
-    .project-card:hover .project-title,
-    .project-card:hover .project-desc {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Image error / missing fallback */
-    .project-image[src=""],
-    .project-image:not([src]) {
-      display: none;
-    }
-
+    /* Image fallback */
     .img-fallback {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #e0dbd4;
+      position: absolute; inset: 0;
+      display: none; align-items: center; justify-content: center;
+      background: #ddd8d1;
     }
-
     .img-fallback span {
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
+      font-size: 0.6rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--muted);
     }
 
-    /* ─── ABOUT ─── */
+    /* ABOUT */
     .about { border-top: 1px solid var(--border); }
-
     .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8rem;
-      align-items: start;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: start;
     }
-
     .about-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.4rem, 3.8vw, 3.8rem);
-      font-weight: 300;
-      line-height: 1.1;
-      color: var(--black);
+      font-size: clamp(2.4rem,3.8vw,3.8rem); font-weight: 300; line-height: 1.1;
     }
-
     .about-title em { font-style: italic; }
-
-    .about-years {
-      margin-top: 3rem;
-      padding-top: 2.5rem;
-      border-top: 1px solid var(--border);
-    }
-
+    .about-years { margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid var(--border); }
     .about-years-num {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 4.5rem;
-      font-weight: 300;
-      line-height: 1;
-      color: var(--black);
-      display: block;
+      font-size: 4.5rem; font-weight: 300; line-height: 1; display: block;
     }
-
     .about-years-label {
-      font-size: 0.63rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-top: 0.4rem;
-      display: block;
+      font-size: 0.63rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--muted); margin-top: 0.4rem; display: block;
     }
-
-    .about-text {
-      font-size: 0.88rem;
-      line-height: 1.95;
-      color: var(--muted);
-      margin-bottom: 1.8rem;
-    }
-
+    .about-text { font-size: 0.88rem; line-height: 1.95; color: var(--muted); margin-bottom: 1.8rem; }
     .about-quote {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem;
-      font-style: italic;
-      font-weight: 300;
-      color: var(--black);
-      line-height: 1.55;
-      padding-left: 1.5rem;
-      border-left: 1px solid var(--accent);
-      margin: 2.5rem 0;
+      font-size: 1.35rem; font-style: italic; font-weight: 300;
+      line-height: 1.55; padding-left: 1.5rem; border-left: 1px solid var(--accent); margin: 2.5rem 0;
     }
 
-    /* ─── VIDEO ─── */
-    .video-section {
-      border-top: 1px solid var(--border);
-      padding: 0;
-      position: relative;
-    }
-
-    .video-inner {
-      padding: 7rem 4rem;
-    }
-
+    /* VIDEO */
+    .video-section { border-top: 1px solid var(--border); padding: 0; }
+    .video-inner { padding: 7rem 4rem; }
     .video-wrapper {
-      margin-top: 3rem;
-      position: relative;
-      background: #1a1a18;
-      aspect-ratio: 16/9;
-      max-width: 900px;
-      cursor: pointer;
-      overflow: hidden;
+      margin-top: 3rem; position: relative;
+      background: #1a1a18; aspect-ratio: 16/9;
+      max-width: 900px; cursor: pointer; overflow: hidden;
     }
-
-    .video-wrapper video {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
+    .video-wrapper video { width: 100%; height: 100%; object-fit: cover; display: block; }
     .video-play {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(13,13,13,0.35);
-      transition: background 0.3s;
+      position: absolute; inset: 0; display: flex;
+      align-items: center; justify-content: center;
+      background: rgba(13,13,13,0.35); transition: background 0.3s;
     }
-
     .video-wrapper:hover .video-play { background: rgba(13,13,13,0.2); }
-
     .video-play-btn {
-      width: 56px;
-      height: 56px;
-      border: 1px solid rgba(248,246,242,0.5);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 56px; height: 56px;
+      border: 1px solid rgba(248,246,242,0.5); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
     }
-
     .video-play-btn::after {
-      content: '';
-      width: 0;
-      height: 0;
-      border-top: 9px solid transparent;
-      border-bottom: 9px solid transparent;
-      border-left: 16px solid rgba(248,246,242,0.85);
-      margin-left: 4px;
+      content: ''; width: 0; height: 0;
+      border-top: 9px solid transparent; border-bottom: 9px solid transparent;
+      border-left: 16px solid rgba(248,246,242,0.85); margin-left: 4px;
     }
-
-    .video-tags {
-      display: flex;
-      gap: 3rem;
-      margin-top: 2.5rem;
-    }
-
-    .video-tag {
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-    }
-
+    .video-tags { display: flex; gap: 3rem; margin-top: 2.5rem; }
+    .video-tag { display: flex; flex-direction: column; gap: 0.3rem; }
     .video-tag-label {
-      font-size: 0.6rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
+      font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted);
     }
-
     .video-tag-value {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      font-weight: 300;
-      color: var(--black);
+      font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 300;
     }
 
-    /* ─── SERVICES ─── */
-    .services {
-      border-top: 1px solid var(--border);
-      background: var(--black);
-      color: var(--white);
-    }
-
-    .services .section-label {
-      color: rgba(248,246,242,0.3);
-    }
-
-    .services .section-label::after {
-      background: rgba(248,246,242,0.08);
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-    }
-
-    .service-item {
-      padding: 3rem 2rem 3rem 2rem;
-      border-left: 1px solid rgba(248,246,242,0.07);
-    }
-
+    /* SERVICES */
+    .services { border-top: 1px solid var(--border); background: var(--black); color: var(--white); }
+    .services .section-label { color: rgba(248,246,242,0.3); }
+    .services .section-label::after { background: rgba(248,246,242,0.08); }
+    .services-grid { display: grid; grid-template-columns: repeat(5,1fr); }
+    .service-item { padding: 3rem 2rem; border-left: 1px solid rgba(248,246,242,0.07); }
     .service-item:first-child { border-left: none; padding-left: 0; }
-
     .service-num {
-      font-size: 0.58rem;
-      letter-spacing: 0.22em;
-      color: rgba(248,246,242,0.25);
-      margin-bottom: 3rem;
-      display: block;
+      font-size: 0.58rem; letter-spacing: 0.22em;
+      color: rgba(248,246,242,0.25); margin-bottom: 3rem; display: block;
     }
-
     .service-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      font-weight: 300;
-      color: var(--white);
-      line-height: 1.3;
-      margin-bottom: 1rem;
+      font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;
+      font-weight: 300; line-height: 1.3; margin-bottom: 1rem;
     }
-
     .service-desc {
-      font-size: 0.7rem;
-      line-height: 1.85;
-      color: rgba(248,246,242,0.35);
-      letter-spacing: 0.03em;
+      font-size: 0.7rem; line-height: 1.85;
+      color: rgba(248,246,242,0.35); letter-spacing: 0.03em;
     }
 
-    /* ─── CONTACT ─── */
+    /* CONTACT */
     .contact { border-top: 1px solid var(--border); }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8rem;
-      align-items: end;
-    }
-
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: end; }
     .contact-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.8rem, 4.5vw, 4.5rem);
-      font-weight: 300;
-      line-height: 1.05;
-      color: var(--black);
+      font-size: clamp(2.8rem,4.5vw,4.5rem); font-weight: 300; line-height: 1.05;
     }
-
-    .contact-title em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
+    .contact-title em { font-style: italic; color: var(--accent); }
     .contact-tagline {
-      margin-top: 1.5rem;
-      font-size: 0.8rem;
-      line-height: 1.8;
-      color: var(--muted);
-      max-width: 340px;
+      margin-top: 1.5rem; font-size: 0.8rem; line-height: 1.8; color: var(--muted); max-width: 340px;
     }
-
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
+    .contact-links { display: flex; flex-direction: column; }
     .contact-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.6rem 0;
-      border-bottom: 1px solid var(--border);
-      transition: opacity 0.25s;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.6rem 0; border-bottom: 1px solid var(--border); transition: opacity 0.25s;
     }
-
     .contact-item:first-child { border-top: 1px solid var(--border); }
     .contact-item:hover { opacity: 0.5; }
-
     .contact-item-left { display: flex; flex-direction: column; gap: 0.25rem; }
-
     .contact-item-label {
-      font-size: 0.6rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
+      font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted);
     }
-
-    .contact-item-value {
-      font-size: 0.85rem;
-      color: var(--black);
-    }
-
-    .contact-arrow {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    .social-row {
-      display: flex;
-      gap: 2.5rem;
-      margin-top: 3rem;
-    }
-
+    .contact-item-value { font-size: 0.85rem; }
+    .contact-arrow { font-size: 0.9rem; color: var(--muted); }
+    .social-row { display: flex; gap: 2.5rem; margin-top: 3rem; }
     .social-row a {
-      font-size: 0.62rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
-      transition: color 0.25s;
+      font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--muted); transition: color 0.25s;
     }
-
     .social-row a:hover { color: var(--black); }
 
-    /* ─── FOOTER ─── */
+    /* FOOTER */
     footer {
-      padding: 2rem 4rem;
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      padding: 2rem 4rem; border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
     }
-
     footer span {
-      font-size: 0.62rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted);
+      font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted);
     }
 
-    /* ─── ANIMATIONS ─── */
+    /* LIGHTBOX */
+    #portfolioModal {
+      display: none; position: fixed; inset: 0; z-index: 999;
+      background: rgba(13,13,13,0.94);
+      align-items: center; justify-content: center; flex-direction: column;
+    }
+    #portfolioModal.active { display: flex; }
+    #portfolioModal img {
+      max-width: 88vw; max-height: 78vh; object-fit: contain; display: block;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+    }
+    .modal-close {
+      position: absolute; top: 1.5rem; right: 2rem;
+      font-size: 1.4rem; color: var(--white); cursor: pointer;
+      background: none; border: none; opacity: 0.5; transition: opacity 0.2s;
+    }
+    .modal-close:hover { opacity: 1; }
+    .modal-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      font-size: 2rem; color: var(--white); cursor: pointer;
+      background: none; border: none; opacity: 0.4; transition: opacity 0.2s; padding: 1rem;
+    }
+    .modal-nav:hover { opacity: 1; }
+    .modal-prev { left: 1rem; }
+    .modal-next { right: 1rem; }
+    #modalTitle {
+      margin-top: 0.8rem; font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; font-style: italic; color: rgba(248,246,242,0.5);
+    }
+    #modalCounter {
+      margin-top: 0.3rem; font-size: 0.58rem; letter-spacing: 0.22em;
+      text-transform: uppercase; color: rgba(248,246,242,0.3);
+    }
+
+    /* FADE ANIMATIONS */
     .fade-up {
-      opacity: 0;
-      transform: translateY(28px);
+      opacity: 0; transform: translateY(28px);
       transition: opacity 1s ease, transform 1s ease;
     }
-
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
     .fade-up:nth-child(2) { transition-delay: 0.1s; }
     .fade-up:nth-child(3) { transition-delay: 0.2s; }
     .fade-up:nth-child(4) { transition-delay: 0.3s; }
     .fade-up:nth-child(5) { transition-delay: 0.4s; }
 
-    /* ─── LIGHTBOX ─── */
-    #portfolioModal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 999;
-      background: rgba(13,13,13,0.92);
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-    }
-
-    #portfolioModal.active {
-      display: flex;
-    }
-
-    #portfolioModal img {
-      max-width: 90vw;
-      max-height: 80vh;
-      object-fit: contain;
-      display: block;
-    }
-
-    .modal-close {
+    /* Honeypot — completamente invisível */
+    .cf-honeypot {
       position: absolute;
-      top: 1.5rem;
-      right: 2rem;
-      font-size: 1.5rem;
-      color: var(--white);
-      cursor: pointer;
-      background: none;
-      border: none;
-      opacity: 0.6;
-      transition: opacity 0.2s;
-      font-family: 'Jost', sans-serif;
+      left: -9999px;
+      top: -9999px;
+      width: 0; height: 0;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
     }
 
-    .modal-close:hover { opacity: 1; }
+    /* CONTACT FORM */
+    .contact-form-wrap { display: flex; flex-direction: column; gap: 1.6rem; }
+    .cf-group { display: flex; flex-direction: column; gap: 0.5rem; }
+    .cf-label { font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+    .cf-input { font-family: 'Jost', sans-serif; font-size: 0.85rem; font-weight: 300; color: var(--black); background: transparent; border: none; border-bottom: 1px solid var(--border); padding: 0.7rem 0; outline: none; transition: border-color 0.3s; width: 100%; }
+    .cf-input::placeholder { color: rgba(136,132,128,0.5); }
+    .cf-input:focus { border-color: var(--black); }
+    .cf-textarea { resize: vertical; min-height: 110px; line-height: 1.7; }
+    .cf-btn { font-family: 'Jost', sans-serif; font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); background: var(--black); border: 1px solid var(--black); padding: 1rem 2.5rem; cursor: pointer; align-self: flex-start; transition: background 0.3s, color 0.3s; margin-top: 0.5rem; }
+    .cf-btn:hover:not(:disabled) { background: transparent; color: var(--black); }
+    .cf-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .cf-feedback { font-size: 0.75rem; letter-spacing: 0.05em; min-height: 1.2em; margin-top: 0.25rem; }
+    .cf-feedback.success { color: #5a8f5a; }
+    .cf-feedback.error { color: #c0504d; }
 
-    .modal-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 1.5rem;
-      color: var(--white);
-      cursor: pointer;
-      background: none;
-      border: none;
-      opacity: 0.5;
-      transition: opacity 0.2s;
-      padding: 1rem;
-    }
-
-    .modal-nav:hover { opacity: 1; }
-    .modal-prev { left: 1.5rem; }
-    .modal-next { right: 1.5rem; }
-
-    #modalCounter {
-      margin-top: 1rem;
-      font-size: 0.62rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: rgba(248,246,242,0.4);
-    }
-
-    /* ─── RESPONSIVE ─── */
+    /* RESPONSIVE */
     @media (max-width: 900px) {
       nav { padding: 0 1.5rem; }
       .nav-links { display: none; }
       section { padding: 5rem 1.5rem; }
-      .hero { padding-left: 1.5rem; padding-right: 1.5rem; padding-bottom: 4rem; }
-      .hero-side-tag { display: none; }
-      .hero-scroll { display: none; }
-      .about-grid,
-      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .hero { padding: var(--nav-h) 1.5rem 4rem; }
+      .hero-side-tag, .hero-scroll { display: none; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
       #grid { grid-template-columns: 1fr 1fr; }
-      #grid .project-card:first-child { grid-column: span 2; }
+      #grid .project-card:nth-child(1) { grid-column: span 2; }
       .services-grid { grid-template-columns: 1fr 1fr; }
       .service-item:first-child { border-left: none; padding-left: 0; }
       .video-inner { padding: 5rem 1.5rem; }
       footer { padding: 1.5rem; }
     }
-
     @media (max-width: 560px) {
       #grid { grid-template-columns: 1fr; }
-      #grid .project-card:first-child { grid-column: span 1; }
+      #grid .project-card:nth-child(1) { grid-column: span 1; }
+      #grid .project-card:nth-child(1)::before { padding-top: 75%; }
       .services-grid { grid-template-columns: 1fr; }
       .service-item { border-left: none; padding-left: 0; border-top: 1px solid rgba(248,246,242,0.07); }
       .hero-title { font-size: 2.8rem; }
@@ -819,9 +468,8 @@
 </head>
 <body>
 
-  <!-- ─── NAV ─── -->
-  <nav>
-    <a href="#" class="nav-logo" id="logoLink"><em>Vitu</em> Studio</a>
+  <nav id="mainNav">
+    <a href="#" class="nav-logo"><em>Vitu</em> Studio</a>
     <ul class="nav-links">
       <li><a href="#portfolio">Portfólio</a></li>
       <li><a href="#sobre">Sobre</a></li>
@@ -831,28 +479,21 @@
     <div class="nav-status">Disponível para projetos</div>
   </nav>
 
-  <!-- ─── HERO ─── -->
   <section class="hero">
     <div class="hero-side-tag">Portfólio — 2026</div>
     <p class="hero-eyebrow fade-up">Vítor Gabriel · Designer Visual</p>
-    <h1 class="hero-title fade-up">
-      Criando experiências<br>
-      <em>visuais</em> memoráveis
-    </h1>
-    <p class="hero-sub fade-up">
-      Ilustração Digital <span>·</span> Edição <span>·</span> Identidade Visual
-    </p>
-    <div class="hero-cta-row fade-up">
-      <a href="#portfolio" class="btn-primary">Ver Portfólio</a>
-      <a href="#contato" class="btn-ghost">Fale Comigo</a>
-    </div>
+    <h1 class="hero-title fade-up">Criando experiências<br><em>visuais</em> memoráveis</h1>
+    <p class="hero-sub fade-up">Ilustração Digital <span>·</span> Edição <span>·</span> Identidade Visual</p>
+     <div class="hero-cta-row fade-up">
+  <a href="#portfolio" class="btn-primary">Ver Portfólio</a>
+  <a href="#contato" class="btn-ghost">Fale Comigo</a>
+</div>
     <div class="hero-scroll">
       <div class="hero-scroll-line"></div>
       <span>Scroll</span>
     </div>
   </section>
 
-  <!-- ─── PORTFOLIO ─── -->
   <section class="portfolio" id="portfolio">
     <p class="section-label">Portfólio</p>
     <ul class="portfolio-filter">
@@ -861,52 +502,34 @@
       <li class="filter-btn" data-category="edicao">Edição</li>
       <li class="filter-btn" data-category="identidade">Identidade</li>
     </ul>
-    <!-- JS renders cards here -->
     <div id="grid"></div>
   </section>
 
-  <!-- ─── ABOUT ─── -->
   <section class="about" id="sobre">
     <p class="section-label">Sobre</p>
     <div class="about-grid">
       <div>
-        <h2 class="about-title fade-up">
-          A pessoa<br>por trás do<br><em>Vitu Studio</em>
-        </h2>
+        <h2 class="about-title fade-up">A pessoa<br>por trás do<br><em>Vitu Studio</em></h2>
         <div class="about-years fade-up">
           <span class="about-years-num">3+</span>
           <span class="about-years-label">Anos de experiência</span>
         </div>
       </div>
       <div class="fade-up">
-        <p class="about-text">
-          Há mais de 3 anos desenvolvendo e aprimorando habilidades em Ilustração e Edição.
-          Uma jornada de dedicação, onde cada projeto carrega intenção e propósito.
-        </p>
-        <blockquote class="about-quote">
-          "Não comecei com dom.<br>Comecei com Decisão."
-        </blockquote>
-        <p class="about-text">
-          Transformo paixão em resultados concretos. No <strong>@studio_vitu</strong>,
-          a missão é unir fé e valores à excelência técnica que cada projeto merece.
-          Dedicação em cada detalhe, compromisso com a verdade.
-        </p>
+        <p class="about-text">Há mais de 3 anos desenvolvendo e aprimorando habilidades em Ilustração e Edição. Uma jornada de dedicação, onde cada projeto carrega intenção e propósito.</p>
+        <blockquote class="about-quote">"Não comecei com dom.<br>Comecei com Decisão."</blockquote>
+        <p class="about-text">Transformo paixão em resultados concretos. No <strong>@studio_vitu</strong>, a missão é unir fé e valores à excelência técnica que cada projeto merece. Dedicação em cada detalhe, compromisso com a verdade.</p>
       </div>
     </div>
   </section>
 
-  <!-- ─── VIDEO ─── -->
   <section class="video-section" id="edicoes">
     <div class="video-inner">
       <p class="section-label">Edições</p>
-      <h2 class="about-title fade-up" style="margin-bottom: 2rem;">
-        Veja meu trabalho<br><em>em ação</em>
-      </h2>
+      <h2 class="about-title fade-up" style="margin-bottom:2rem">Veja meu trabalho<br><em>em ação</em></h2>
       <div class="video-wrapper fade-up" id="videoWrapper">
         <video id="myVideo" src="edicao.mp4" loop></video>
-        <div class="video-play" id="playOverlay">
-          <div class="video-play-btn"></div>
-        </div>
+        <div class="video-play" id="playOverlay"><div class="video-play-btn"></div></div>
       </div>
       <div class="video-tags fade-up">
         <div class="video-tag">
@@ -925,7 +548,6 @@
     </div>
   </section>
 
-  <!-- ─── SERVICES ─── -->
   <section class="services" id="servicos">
     <p class="section-label">Serviços</p>
     <div class="services-grid">
@@ -957,21 +579,16 @@
     </div>
   </section>
 
-  <!-- ─── CONTACT ─── -->
   <section class="contact" id="contato">
     <p class="section-label">Contato</p>
     <div class="contact-grid">
+
+      <!-- Esquerda: título + links rápidos -->
       <div class="fade-up">
-        <h2 class="contact-title">
-          Vamos<br>trabalhar<br><em>juntos?</em>
-        </h2>
-        <p class="contact-tagline">
-          Se busca uma parceria que valoriza o processo tanto quanto o resultado,
-          você está no lugar certo.
-        </p>
-      </div>
-      <div class="fade-up">
-        <div class="contact-links">
+        <h2 class="contact-title">Vamos<br>trabalhar<br><em>juntos?</em></h2>
+        <p class="contact-tagline">Se busca uma parceria que valoriza o processo tanto quanto o resultado, você está no lugar certo.</p>
+
+        <div class="contact-links" style="margin-top:2.5rem">
           <a class="contact-item" href="mailto:vitustudio2026@gmail.com">
             <div class="contact-item-left">
               <span class="contact-item-label">Email</span>
@@ -994,233 +611,262 @@
             <span class="contact-arrow">↗</span>
           </a>
         </div>
+
         <div class="social-row">
           <a href="https://instagram.com/studio_vitu" target="_blank" rel="noopener">Instagram</a>
           <a href="https://www.youtube.com/@Vitu_Studio" target="_blank" rel="noopener">YouTube</a>
           <a href="https://linkedin.com/company/vitu-studio" target="_blank" rel="noopener">LinkedIn</a>
         </div>
       </div>
+
+      <!-- Direita: formulário real -->
+      <div class="fade-up">
+        <div class="contact-form-wrap">
+          <!-- HONEYPOT: invisível para humanos, bots preenchem e são bloqueados -->
+          <div class="cf-honeypot" aria-hidden="true">
+            <input type="text" name="website" id="cf-honeypot" tabindex="-1" autocomplete="off" />
+          </div>
+          <div class="cf-group">
+            <label class="cf-label" for="cf-name">Nome</label>
+            <input class="cf-input" id="cf-name" type="text" placeholder="Seu nome completo" autocomplete="name" />
+          </div>
+          <div class="cf-group">
+            <label class="cf-label" for="cf-email">E-mail</label>
+            <input class="cf-input" id="cf-email" type="email" placeholder="seu@email.com" autocomplete="email" />
+          </div>
+          <div class="cf-group">
+            <label class="cf-label" for="cf-message">Mensagem</label>
+            <textarea class="cf-input cf-textarea" id="cf-message" placeholder="Conte um pouco sobre o seu projeto..." rows="5"></textarea>
+          </div>
+          <button class="cf-btn" id="cf-submit">
+            <span id="cf-btn-text">Enviar Mensagem</span>
+            <span id="cf-btn-spinner" style="display:none">Enviando…</span>
+          </button>
+          <p id="cf-feedback" class="cf-feedback" aria-live="polite"></p>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- ─── FOOTER ─── -->
   <footer>
-    <span><em style="font-family:'Cormorant Garamond',serif; font-style:italic;">Vitu</em> Studio</span>
+    <span><em style="font-family:'Cormorant Garamond',serif;font-style:italic">Vitu</em> Studio</span>
     <span>© 2026 Vítor Gabriel. Todos os direitos reservados.</span>
   </footer>
 
-  <!-- ─── LIGHTBOX MODAL ─── -->
   <div id="portfolioModal">
     <button class="modal-close">✕</button>
     <button class="modal-prev modal-nav">‹</button>
     <img id="modalImage" src="" alt="" />
+    <p id="modalTitle"></p>
     <span id="modalCounter"></span>
     <button class="modal-next modal-nav">›</button>
   </div>
 
   <script>
-    // ========== PROJECTS DATA ==========
     const projects = [
       // ILUSTRAÇÕES
-      { category: 'ilustracao', title: 'Guerreiro Android',      description: 'Desenho a nanquim de personagem futurista', image: 'guerreiro.jpg' },
-      { category: 'ilustracao', title: 'Flamingo',               description: 'Aquarela suave de ave tropical',            image: 'flamingo.jpg' },
-      { category: 'ilustracao', title: 'Meliodas Fan Art',        description: 'Ilustração colorida de personagem',        image: 'meliodas.jpg' },
-      { category: 'ilustracao', title: 'Releitura Rembrandt',     description: 'Aquarela inspirada em obra clássica',      image: 'rembrandt.jpg' },
-      { category: 'ilustracao', title: 'Detetive Conan',          description: 'Grande detetive do mundo dos animes',      image: 'conan.jpg' },
-      { category: 'ilustracao', title: 'Turma do Pererê',         description: 'Ilustração colorida de personagens brasileiros', image: 'turma do perere.jpg' },
-      { category: 'ilustracao', title: 'Deusa do Amor',           description: 'Arte em grafite com traços expressivos',   image: 'deusa do amor.jpg' },
-      { category: 'ilustracao', title: 'Arte Conceitual',         description: 'Visões do Oceano',                         image: 'paisagem.jpg' },
-      { category: 'ilustracao', title: 'Da Vinci',                description: 'Releitura de obra clássica',               image: 'DAVINCI.jpg' },
-      { category: 'ilustracao', title: 'Mestra Genkai Fan Art',   description: 'Ilustração de personagem icônica',         image: 'mestra genkai.jpg' },
+      { category:'ilustracao', title:'Guerreiro Android',          description:'Desenho a nanquim de personagem futurista',       image:'guerreiro.jpg' },
+      { category:'ilustracao', title:'Flamingo',                   description:'Aquarela suave de ave tropical',                  image:'flamingo.jpg' },
+      { category:'ilustracao', title:'Meliodas Fan Art',            description:'Ilustração colorida de personagem',              image:'meliodas.jpg' },
+      { category:'ilustracao', title:'Detetive Conan',              description:'Grande detetive do mundo dos animes',            image:'conan.jpg' },
+      { category:'ilustracao', title:'Mestra Genkai',               description:'Ilustração de personagem icônica',               image:'mestra genkai.jpg' },
+      { category:'ilustracao', title:'Turma do Pererê',             description:'Ilustração colorida de personagens brasileiros', image:'turma do perere.jpg' },
+      { category:'ilustracao', title:'Deusa do Amor',               description:'Arte em aquarela com traços expressivos',        image:'deusa do amor.jpg' },
+      { category:'ilustracao', title:'Arte Conceitual — Paisagem',  description:'Visões do oceano',                              image:'paisagem.jpg' },
+      { category:'ilustracao', title:'Releitura Rembrandt',         description:'Aquarela inspirada em obra clássica',            image:'rembrandt.jpg' },
+      { category:'ilustracao', title:'Da Vinci',                    description:'Releitura renascentista em aquarela',            image:'DAVINCI.jpg' },
       // EDIÇÃO
-      { category: 'edicao', title: 'Natal Iluminado',    description: 'Captura de decoração natalina com luzes',    image: '21.jpg' },
-      { category: 'edicao', title: 'Flores Vermelhas',   description: 'Fotografia macro de flores em ambiente natural', image: '22.jpg' },
-      { category: 'edicao', title: 'Céu e Natureza',     description: 'Paisagem com árvores e céu dramático',       image: '23.jpg' },
-      { category: 'edicao', title: 'Jardim Tranquilo',   description: 'Composição de jardim residencial',           image: '24.jpg' },
-      { category: 'edicao', title: 'Céu Tropical',       description: 'Palmeiras com céu nublado ao fundo',         image: '25.jpg' },
-      { category: 'edicao', title: 'Flor Solitária',     description: 'Detalhe artístico de flor vermelha',         image: '26.jpg' },
-      { category: 'edicao', title: 'Monumento Urbano',   description: 'Arquitetura e arte urbana',                  image: '27.jpg' },
+      { category:'edicao', title:'Natal Iluminado',   description:'Decoração natalina com luzes',              image:'21.jpg' },
+      { category:'edicao', title:'Flores Vermelhas',  description:'Fotografia macro de flores em ambiente natural', image:'22.jpg' },
+      { category:'edicao', title:'Céu e Natureza',    description:'Paisagem com árvores e céu dramático',      image:'23.jpg' },
+      { category:'edicao', title:'Jardim Tranquilo',  description:'Composição de jardim residencial',          image:'24.jpg' },
+      { category:'edicao', title:'Céu Tropical',      description:'Palmeiras com céu nublado ao fundo',        image:'25.jpg' },
+      { category:'edicao', title:'Flor Solitária',    description:'Detalhe artístico de flor vermelha',        image:'26.jpg' },
+      { category:'edicao', title:'Monumento Urbano',  description:'Arquitetura e arte urbana',                 image:'27.jpg' },
       // IDENTIDADE VISUAL
-      { category: 'identidade', title: 'Dicas de Segurança na Internet', description: 'Conteúdo introdutório sobre segurança digital', image: 'imagem1.png' },
-      { category: 'identidade', title: '5 Dicas em Compras Online',      description: 'Segurança em compras online',    image: 'imagem2.png' },
-      { category: 'identidade', title: 'Desconfie de Ofertas',           description: 'Orientações sobre golpes',       image: 'imagem3.png' },
-      { category: 'identidade', title: 'Cuidado com sua Conta',          description: 'Monitoramento financeiro',       image: 'imagem4.png' },
-      { category: 'identidade', title: 'Ofertas Mirabolantes',           description: 'Orientações sobre fraudes',      image: 'imagem5.png' },
-      { category: 'identidade', title: '3 Dicas para Proteger Senhas',   description: 'Proteção de dados pessoais',     image: 'imagem6.png' },
-      { category: 'identidade', title: 'Logotipo Froggi',                description: 'Identidade visual de marca',     image: 'logotipofroggi.png' },
-      { category: 'identidade', title: 'Froggi — Mascote',               description: 'Ícone para a logomarca',         image: 'froggi.png' },
-      { category: 'identidade', title: 'Froggi Learning',                description: 'Versão do mascote estudando',    image: 'froggi_learnirg.png' },
+      { category:'identidade', title:'Dicas de Segurança na Internet', description:'Conteúdo informativo sobre segurança digital',  image:'imagem1.png' },
+      { category:'identidade', title:'5 Dicas em Compras Online',      description:'Segurança em compras online',                  image:'imagem2.png' },
+      { category:'identidade', title:'Desconfie de Ofertas',           description:'Orientações sobre golpes',                     image:'imagem3.png' },
+      { category:'identidade', title:'Cuidado com sua Conta',          description:'Monitoramento financeiro',                     image:'imagem4.png' },
+      { category:'identidade', title:'Ofertas Mirabolantes',           description:'Orientações sobre fraudes online',             image:'imagem5.png' },
+      { category:'identidade', title:'3 Dicas para Proteger Senhas',   description:'Proteção de dados pessoais',                   image:'imagem6.png' },
+      { category:'identidade', title:'Logotipo Froggi',                description:'Identidade visual de marca',                   image:'logotipofroggi.png' },
+      { category:'identidade', title:'Logomarca P&S',                  description:'Ícone principal da logomarca',                 image:'froggi.png' },
+      { category:'identidade', title:'Froggi Learning',                description:'Variação do mascote estudando',                image:'froggi learnirg.png' },
+      { category:'identidade', title:'Logotipo Pequenoss',             description:'Identidade visual para a marca Pequenoss',     image:'pequenoss.png' },
+      { category:'identidade', title:'Vitu Studio — Banner',           description:'Banner oficial do estúdio',                    image:'vitu-studio-banner.png' },
+      { category:'identidade', title:'Quem Sou Eu',                    description:'Post de apresentação pessoal',                 image:'quem-sou-eu.jpg' },
+      { category:'identidade', title:'Precisa de Ajuda?',              description:'Post de contato e divulgação',                 image:'precisa-de-ajuda.jpg' },
+      { category:'identidade', title:'Te Ajudo',                       description:'Post de apresentação dos serviços',            image:'te-ajudo.jpg' },
+      { category:'identidade', title:'Fundador',                       description:'Imagem de apresentação do fundador',           image:'fundador.jpg' },
     ];
 
-    // ========== RENDER ==========
     const grid = document.getElementById('grid');
+    const catName = c => ({ilustracao:'Ilustração',edicao:'Edição',identidade:'Identidade Visual'}[c]||c);
 
-    function getCategoryName(cat) {
-      return { ilustracao: 'Ilustração', edicao: 'Edição', identidade: 'Identidade Visual' }[cat] || cat;
-    }
-
-    function renderProjects(filter = 'todos') {
-      if (!grid) return;
+    function renderProjects(filter='todos') {
       grid.innerHTML = '';
+      const list = filter==='todos' ? projects : projects.filter(p=>p.category===filter);
 
-      const filtered = filter === 'todos' ? projects : projects.filter(p => p.category === filter);
-
-      filtered.forEach((project) => {
+      list.forEach((p, i) => {
         const card = document.createElement('div');
         card.className = 'project-card';
+        card.style.cssText = `opacity:0;transform:translateY(16px);transition:opacity .5s ${(i*0.035).toFixed(3)}s ease,transform .5s ${(i*0.035).toFixed(3)}s ease`;
+
+        const fb = document.createElement('div');
+        fb.className = 'img-fallback';
+        fb.innerHTML = `<span>${p.title}</span>`;
 
         const img = document.createElement('img');
-        img.src = project.image;
-        img.alt = project.title;
-        img.className = 'project-image';
-        img.loading = 'lazy';
-
-        // Fallback if image fails to load
-        img.onerror = function() {
-          this.style.display = 'none';
-          const fb = card.querySelector('.img-fallback');
-          if (fb) fb.style.display = 'flex';
-        };
-
-        const fallback = document.createElement('div');
-        fallback.className = 'img-fallback';
-        fallback.style.display = 'none';
-        fallback.innerHTML = `<span>${project.title}</span>`;
+        img.src = p.image; img.alt = p.title;
+        img.className = 'project-image'; img.loading = 'lazy';
+        img.onerror = () => { img.style.display='none'; fb.style.display='flex'; };
 
         const info = document.createElement('div');
         info.className = 'project-info';
         info.innerHTML = `
-          <div class="project-category">${getCategoryName(project.category)}</div>
-          <h3 class="project-title">${project.title}</h3>
-          <p class="project-desc">${project.description}</p>
-        `;
+          <div class="project-category">${catName(p.category)}</div>
+          <h3 class="project-title">${p.title}</h3>
+          <p class="project-desc">${p.description}</p>`;
 
-        card.appendChild(fallback);
-        card.appendChild(img);
-        card.appendChild(info);
+        card.append(fb, img, info);
         grid.appendChild(card);
-      });
 
-      // Re-observe new cards for fade-in
-      grid.querySelectorAll('.project-card').forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        setTimeout(() => {
-          card.style.opacity = '1';
-          card.style.transform = 'translateY(0)';
-        }, 60);
+        requestAnimationFrame(()=>requestAnimationFrame(()=>{
+          card.style.opacity='1'; card.style.transform='translateY(0)';
+        }));
       });
     }
 
-    // ========== FILTER ==========
+    // Filter
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
         btn.classList.add('active');
         renderProjects(btn.dataset.category);
       });
     });
 
-    // ========== LIGHTBOX ==========
-    let lightboxImages = [];
-    let currentIdx = 0;
-    const modal = document.getElementById('portfolioModal');
-    const modalImage = document.getElementById('modalImage');
-    const modalCounter = document.getElementById('modalCounter');
+    // Lightbox
+    let lb=[], lbIdx=0;
+    const modal=document.getElementById('portfolioModal');
+    const modalImg=document.getElementById('modalImage');
+    const modalCount=document.getElementById('modalCounter');
+    const modalTitle=document.getElementById('modalTitle');
 
-    grid.addEventListener('click', (e) => {
-      const card = e.target.closest('.project-card');
-      if (!card) return;
-      const img = card.querySelector('.project-image');
-      if (!img || img.style.display === 'none') return;
-
-      // Build list of all visible images
-      lightboxImages = Array.from(grid.querySelectorAll('.project-image'))
-        .filter(i => i.style.display !== 'none');
-      currentIdx = lightboxImages.indexOf(img);
-      openLightbox();
+    grid.addEventListener('click', e => {
+      const card=e.target.closest('.project-card'); if(!card) return;
+      const img=card.querySelector('.project-image');
+      if(!img||img.style.display==='none') return;
+      lb=Array.from(grid.querySelectorAll('.project-image')).filter(i=>i.style.display!=='none');
+      lbIdx=lb.indexOf(img); openLb();
     });
 
-    function openLightbox() {
-      modalImage.src = lightboxImages[currentIdx].src;
-      modalImage.alt = lightboxImages[currentIdx].alt;
-      modalCounter.textContent = `${currentIdx + 1} / ${lightboxImages.length}`;
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
+    function openLb() {
+      modalImg.src=lb[lbIdx].src; modalImg.alt=lb[lbIdx].alt;
+      modalTitle.textContent=lb[lbIdx].alt;
+      modalCount.textContent=`${lbIdx+1} / ${lb.length}`;
+      modal.classList.add('active'); document.body.style.overflow='hidden';
     }
+    function closeLb() { modal.classList.remove('active'); document.body.style.overflow=''; }
+    function nextLb() { lbIdx=(lbIdx+1)%lb.length; openLb(); }
+    function prevLb() { lbIdx=(lbIdx-1+lb.length)%lb.length; openLb(); }
 
-    function closeLightbox() {
-      modal.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    function nextImg() {
-      currentIdx = (currentIdx + 1) % lightboxImages.length;
-      openLightbox();
-    }
-
-    function prevImg() {
-      currentIdx = (currentIdx - 1 + lightboxImages.length) % lightboxImages.length;
-      openLightbox();
-    }
-
-    document.querySelector('.modal-close').addEventListener('click', closeLightbox);
-    document.querySelector('.modal-next').addEventListener('click', nextImg);
-    document.querySelector('.modal-prev').addEventListener('click', prevImg);
-    modal.addEventListener('click', e => { if (e.target === modal) closeLightbox(); });
-    document.addEventListener('keydown', e => {
-      if (!modal.classList.contains('active')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowRight') nextImg();
-      if (e.key === 'ArrowLeft') prevImg();
+    document.querySelector('.modal-close').addEventListener('click',closeLb);
+    document.querySelector('.modal-next').addEventListener('click',nextLb);
+    document.querySelector('.modal-prev').addEventListener('click',prevLb);
+    modal.addEventListener('click',e=>{if(e.target===modal)closeLb();});
+    document.addEventListener('keydown',e=>{
+      if(!modal.classList.contains('active'))return;
+      if(e.key==='Escape')closeLb();
+      if(e.key==='ArrowRight')nextLb();
+      if(e.key==='ArrowLeft')prevLb();
     });
 
-    // ========== SCROLL ANIMATIONS ==========
-    const fadeEls = document.querySelectorAll('.fade-up');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    fadeEls.forEach(el => observer.observe(el));
-
-    document.querySelectorAll('.hero .fade-up').forEach((el, i) => {
-      setTimeout(() => el.classList.add('visible'), 200 + i * 150);
+    // Scroll animations
+    const obs=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+    },{threshold:0.12});
+    document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+    document.querySelectorAll('.hero .fade-up').forEach((el,i)=>{
+      setTimeout(()=>el.classList.add('visible'),200+i*150);
     });
 
-    // ========== VIDEO ==========
-    const video = document.getElementById('myVideo');
-    const overlay = document.getElementById('playOverlay');
-    const wrapper = document.getElementById('videoWrapper');
-
-    if (video && overlay) {
-      overlay.style.transition = 'opacity 0.3s';
-      wrapper.addEventListener('click', () => {
-        if (video.paused) { video.play(); overlay.style.opacity = '0'; }
-        else { video.pause(); overlay.style.opacity = '1'; }
+    // Video
+    const video=document.getElementById('myVideo');
+    const overlay=document.getElementById('playOverlay');
+    const wrapper=document.getElementById('videoWrapper');
+    if(video){
+      overlay.style.transition='opacity .3s';
+      wrapper.addEventListener('click',()=>{
+        if(video.paused){video.play();overlay.style.opacity='0';}
+        else{video.pause();overlay.style.opacity='1';}
       });
     }
 
-    // ========== SMOOTH SCROLL ==========
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', e => {
-        const target = document.querySelector(link.getAttribute('href'));
-        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        const t=document.querySelector(a.getAttribute('href'));
+        if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
       });
     });
 
-    // ========== NAV SHADOW ==========
-    const header = document.querySelector('nav');
-    window.addEventListener('scroll', () => {
-      header.style.boxShadow = window.pageYOffset > 60 ? '0 4px 20px rgba(0,0,0,0.06)' : 'none';
+    // Nav shadow
+    window.addEventListener('scroll',()=>{
+      document.getElementById('mainNav').style.boxShadow=
+        window.scrollY>60?'0 4px 24px rgba(0,0,0,0.06)':'none';
     });
 
-    // ========== INIT ==========
     renderProjects();
+
+    // ── CONTACT FORM
+    const cfSubmit   = document.getElementById('cf-submit');
+    const cfBtnText  = document.getElementById('cf-btn-text');
+    const cfSpinner  = document.getElementById('cf-btn-spinner');
+    const cfFeedback = document.getElementById('cf-feedback');
+
+    cfSubmit.addEventListener('click', async () => {
+      const name    = document.getElementById('cf-name').value.trim();
+      const email   = document.getElementById('cf-email').value.trim();
+      const message = document.getElementById('cf-message').value.trim();
+      cfFeedback.className   = 'cf-feedback';
+      cfFeedback.textContent = '';
+      if (!name || !email || !message) {
+        cfFeedback.textContent = 'Por favor, preencha todos os campos.';
+        cfFeedback.classList.add('error'); return;
+      }
+      cfSubmit.disabled       = true;
+      cfBtnText.style.display = 'none';
+      cfSpinner.style.display = 'inline';
+      try {
+        const res  = await fetch('/api/contact', {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify({ name, email, message, website: document.getElementById('cf-honeypot').value }),
+        });
+        const data = await res.json();
+        if (res.ok) {
+          cfFeedback.textContent = '\u2713 Mensagem enviada! Responderei em breve.';
+          cfFeedback.classList.add('success');
+          document.getElementById('cf-name').value    = '';
+          document.getElementById('cf-email').value   = '';
+          document.getElementById('cf-message').value = '';
+        } else {
+          cfFeedback.textContent = data.error || 'Algo deu errado. Tente novamente.';
+          cfFeedback.classList.add('error');
+        }
+      } catch {
+        cfFeedback.textContent = 'Sem conexao com o servidor. Tente novamente.';
+        cfFeedback.classList.add('error');
+      } finally {
+        cfSubmit.disabled       = false;
+        cfBtnText.style.display = 'inline';
+        cfSpinner.style.display = 'none';
+      }
+    });
+
   </script>
 </body>
 </html>
