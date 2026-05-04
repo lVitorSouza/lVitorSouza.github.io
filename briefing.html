@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Briefing de Projeto — Vitu Studio</title>
+  <meta name="description" content="Preencha o briefing do seu projeto e dê o primeiro passo para criar algo memorável com o Vitu Studio." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black:  #0d0d0d;
+      --white:  #f8f6f2;
+      --accent: #b8a898;
+      --muted:  #888480;
+      --border: rgba(13,13,13,0.1);
+      --nav-h:  72px;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      background: var(--white);
+      color: var(--black);
+      letter-spacing: 0.02em;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100; height: var(--nav-h);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 4rem;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300; font-size: 1.1rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+    }
+    .nav-logo em { font-style: italic; font-weight: 400; }
+    .nav-back {
+      font-size: 0.62rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--muted);
+      display: flex; align-items: center; gap: 0.6rem;
+      transition: color 0.3s;
+    }
+    .nav-back::before { content: '←'; font-size: 0.85rem; }
+    .nav-back:hover { color: var(--black); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 65vh;
+      padding: calc(var(--nav-h) + 6rem) 4rem 6rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: end;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: 'B';
+      position: absolute; right: -0.04em; bottom: -0.18em;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(14rem, 24vw, 24rem);
+      font-weight: 300; line-height: 1;
+      color: rgba(13,13,13,0.03);
+      pointer-events: none; user-select: none;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.62rem; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 2rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .hero-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--accent); }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 5.5vw, 5.5rem);
+      font-weight: 300; line-height: 1.0;
+    }
+    .hero-title em { font-style: italic; color: var(--accent); }
+
+    .hero-right { display: flex; flex-direction: column; gap: 2.5rem; }
+
+    .hero-desc {
+      font-size: 0.87rem; line-height: 1.95; color: var(--muted);
+    }
+
+    .hero-steps { border-top: 1px solid var(--border); }
+    .hero-step {
+      display: flex; align-items: center; gap: 1.8rem;
+      padding: 1.1rem 0; border-bottom: 1px solid var(--border);
+    }
+    .step-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; font-weight: 300;
+      color: var(--accent); line-height: 1; min-width: 2rem;
+    }
+    .step-text { font-size: 0.75rem; letter-spacing: 0.03em; color: var(--muted); line-height: 1.6; }
+    .step-text strong { color: var(--black); font-weight: 400; display: block; margin-bottom: 0.1rem; }
+
+    /* ── SECTION BASE ── */
+    section { padding: 7rem 4rem; }
+
+    .section-label {
+      font-size: 0.6rem; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 4rem;
+      display: flex; align-items: center; gap: 1.5rem;
+    }
+    .section-label::after { content: ''; width: 50px; height: 1px; background: var(--border); }
+
+    /* ── SERVICES ── */
+    .services-section { border-top: 1px solid var(--border); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+
+    .service-card {
+      padding: 2.5rem 1.8rem 2.5rem;
+      background: #f0ede8;
+      cursor: pointer;
+      position: relative;
+      transition: background 0.35s;
+      user-select: none;
+    }
+    .service-card:hover { background: #e8e3dc; }
+    .service-card.selected { background: var(--black); color: var(--white); }
+
+    .service-card-num {
+      font-size: 0.56rem; letter-spacing: 0.22em; color: var(--muted);
+      margin-bottom: 2.2rem; display: block; transition: color 0.35s;
+    }
+    .service-card.selected .service-card-num { color: rgba(248,246,242,0.25); }
+
+    .service-check {
+      position: absolute; top: 1.4rem; right: 1.4rem;
+      width: 18px; height: 18px; border-radius: 50%;
+      border: 1px solid rgba(13,13,13,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.6rem; color: transparent;
+      transition: all 0.3s;
+    }
+    .service-card.selected .service-check {
+      background: var(--accent); border-color: var(--accent); color: var(--white);
+    }
+
+    .service-card-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem; font-weight: 300; line-height: 1.2; margin-bottom: 0.9rem;
+    }
+    .service-card-desc {
+      font-size: 0.68rem; line-height: 1.85; color: var(--muted); transition: color 0.35s;
+    }
+    .service-card.selected .service-card-desc { color: rgba(248,246,242,0.38); }
+
+    .service-card-tag {
+      margin-top: 1.5rem;
+      display: inline-block;
+      font-size: 0.56rem; letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 0.3rem 0.7rem;
+      border: 1px solid rgba(13,13,13,0.12);
+      color: var(--muted);
+      transition: all 0.35s;
+    }
+    .service-card.selected .service-card-tag {
+      border-color: rgba(184,168,152,0.3);
+      color: var(--accent);
+    }
+
+    /* ── INFO ── */
+    .info-section { border-top: 1px solid var(--border); }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+
+    .info-card {
+      padding: 2.5rem 2rem;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .info-card:nth-child(3n) { border-right: none; }
+    .info-card:nth-last-child(-n+3) { border-bottom: none; }
+
+    .info-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem; font-weight: 300; color: rgba(13,13,13,0.08);
+      line-height: 1; margin-bottom: 1.2rem; display: block;
+    }
+    .info-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; font-weight: 300; margin-bottom: 0.6rem;
+    }
+    .info-text { font-size: 0.72rem; line-height: 1.9; color: var(--muted); }
+    .info-examples {
+      margin-top: 0.8rem; display: flex; flex-wrap: wrap; gap: 0.4rem;
+    }
+    .info-example {
+      font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.25rem 0.6rem; border: 1px solid var(--border); color: var(--muted);
+    }
+
+    /* ── FORM SECTION ── */
+    .form-section {
+      border-top: 1px solid var(--border);
+      background: var(--black);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-section::before {
+      content: '';
+      position: absolute; top: -300px; right: -300px;
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(184,168,152,0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .form-section .section-label { color: rgba(248,246,242,0.28); }
+    .form-section .section-label::after { background: rgba(248,246,242,0.08); }
+
+    .form-header {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; margin-bottom: 4.5rem; align-items: end;
+    }
+    .form-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 3.8vw, 3.8rem);
+      font-weight: 300; line-height: 1.05;
+    }
+    .form-title em { font-style: italic; color: var(--accent); }
+
+    .form-meta { display: flex; flex-direction: column; gap: 1.2rem; }
+    .form-meta-item {
+      display: flex; align-items: center; gap: 1rem;
+      font-size: 0.72rem; color: rgba(248,246,242,0.4);
+    }
+    .form-meta-item::before {
+      content: ''; width: 4px; height: 4px; border-radius: 50%;
+      background: var(--accent); flex-shrink: 0;
+    }
+
+    /* Google Forms embed */
+    .gform-wrap {
+      border: 1px solid rgba(248,246,242,0.07);
+      background: rgba(248,246,242,0.02);
+      overflow: hidden;
+    }
+
+    .gform-wrap iframe {
+      width: 100%; height: 1000px;
+      border: none; display: block;
+    }
+
+    /* ── FAQ ── */
+    .faq-section { border-top: 1px solid var(--border); }
+
+    .faq-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    }
+    .faq-item { padding: 2rem 0; border-bottom: 1px solid var(--border); }
+    .faq-item:nth-child(odd)  { padding-right: 5rem; border-right: 1px solid var(--border); }
+    .faq-item:nth-child(even) { padding-left: 5rem; }
+    .faq-item:nth-last-child(-n+2) { border-bottom: none; }
+
+    .faq-q {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; font-weight: 300; margin-bottom: 0.7rem; line-height: 1.35;
+    }
+    .faq-a { font-size: 0.76rem; line-height: 1.9; color: var(--muted); }
+
+    /* ── CTA ── */
+    .cta-section {
+      border-top: 1px solid var(--border);
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 6rem; align-items: center;
+    }
+    .cta-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 4.2vw, 4.2rem);
+      font-weight: 300; line-height: 1.05;
+    }
+    .cta-title em { font-style: italic; color: var(--accent); }
+    .cta-right { display: flex; flex-direction: column; gap: 1.8rem; }
+    .cta-text { font-size: 0.82rem; line-height: 1.95; color: var(--muted); }
+    .cta-btns { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+
+    .btn-primary {
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--white); background: var(--black); border: 1px solid var(--black);
+      padding: 1rem 2.5rem; cursor: pointer; display: inline-block;
+      transition: background 0.3s, color 0.3s;
+    }
+    .btn-primary:hover { background: transparent; color: var(--black); }
+
+    .btn-ghost {
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted); border: 1px solid var(--border);
+      padding: 1rem 2rem; display: inline-flex; align-items: center; gap: 0.5rem;
+      transition: color 0.3s, border-color 0.3s;
+    }
+    .btn-ghost:hover { color: var(--black); border-color: var(--black); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2rem 4rem; border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    footer span {
+      font-size: 0.62rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--muted);
+    }
+
+    /* ── FADE UP ── */
+    .fade-up {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.95s ease, transform 0.95s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 900px) {
+      nav { padding: 0 1.5rem; }
+      .hero { grid-template-columns: 1fr; padding: calc(var(--nav-h) + 3rem) 1.5rem 3rem; gap: 3rem; }
+      .hero::after { display: none; }
+      section { padding: 5rem 1.5rem; }
+      .form-header { grid-template-columns: 1fr; gap: 2rem; }
+      .info-grid { grid-template-columns: 1fr 1fr; }
+      .info-card:nth-child(3n) { border-right: 1px solid var(--border); }
+      .info-card:nth-child(2n) { border-right: none; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .faq-item:nth-child(odd) { padding-right: 0; border-right: none; }
+      .faq-item:nth-child(even) { padding-left: 0; }
+      .faq-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+      .faq-item:last-child { border-bottom: none; }
+      .cta-section { grid-template-columns: 1fr; gap: 3rem; }
+      footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+    @media (max-width: 560px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .info-grid { grid-template-columns: 1fr; }
+      .info-card { border-right: none !important; }
+      .info-card:nth-last-child(-n+3) { border-bottom: 1px solid var(--border); }
+      .info-card:last-child { border-bottom: none; }
+      .cta-btns { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="mainNav">
+    <a href="index.html" class="nav-logo"><em>Vitu</em> Studio</a>
+    <a href="index.html" class="nav-back">Voltar ao portfólio</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <p class="hero-eyebrow fade-up">Briefing de Projeto</p>
+      <h1 class="hero-title fade-up">
+        Vamos criar<br>algo<br><em>memorável</em>
+      </h1>
+    </div>
+    <div class="hero-right fade-up">
+      <p class="hero-desc">
+        Antes de começar qualquer projeto, preciso entender o seu universo.
+        Quanto mais detalhes você compartilhar, mais preciso e mais rápido
+        consigo entregar exatamente o que você imagina.
+      </p>
+      <div class="hero-steps">
+        <div class="hero-step">
+          <span class="step-num">01</span>
+          <div class="step-text">
+            <strong>Escolha o serviço</strong>
+            Ilustração digital, mista ou identidade visual
+          </div>
+        </div>
+        <div class="hero-step">
+          <span class="step-num">02</span>
+          <div class="step-text">
+            <strong>Preencha o briefing</strong>
+            Formulário rápido com as informações essenciais do projeto
+          </div>
+        </div>
+        <div class="hero-step">
+          <span class="step-num">03</span>
+          <div class="step-text">
+            <strong>Aguarde o retorno</strong>
+            Respondo em até 24h com orçamento e prazo
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services-section">
+    <p class="section-label">Serviços</p>
+    <div class="services-grid">
+
+      <div class="service-card fade-up" data-service="digital">
+        <span class="service-card-num">01</span>
+        <div class="service-check">✓</div>
+        <h3 class="service-card-name">Ilustração<br>Digital</h3>
+        <p class="service-card-desc">
+          Arte criada inteiramente no meio digital. Fan arts, personagens originais, retratos e reinterpretações de clássicos com traço próprio e acabamento refinado.
+        </p>
+        <span class="service-card-tag">Digital</span>
+      </div>
+
+      <div class="service-card fade-up" data-service="mista">
+        <span class="service-card-num">02</span>
+        <div class="service-check">✓</div>
+        <h3 class="service-card-name">Ilustração<br>Mista</h3>
+        <p class="service-card-desc">
+          Combinação de técnicas tradicionais — nanquim, aquarela, grafite — com acabamento digital. O melhor dos dois mundos em uma única arte.
+        </p>
+        <span class="service-card-tag">Tradicional + Digital</span>
+      </div>
+
+      <div class="service-card fade-up" data-service="identidade">
+        <span class="service-card-num">03</span>
+        <div class="service-check">✓</div>
+        <h3 class="service-card-name">Identidade<br>Visual</h3>
+        <p class="service-card-desc">
+          Logos, paletas de cor, tipografia e posts para redes sociais. Uma marca coesa que comunica o propósito do seu negócio com personalidade.
+        </p>
+        <span class="service-card-tag">Branding</span>
+      </div>
+
+      <div class="service-card fade-up" data-service="conteudo">
+        <span class="service-card-num">04</span>
+        <div class="service-check">✓</div>
+        <h3 class="service-card-name">Conteúdo<br>Estratégico</h3>
+        <p class="service-card-desc">
+          Artes e designs pensados para engajar nas redes sociais. Posts, carrosséis, stories e thumbnails criados para converter e comunicar.
+        </p>
+        <span class="service-card-tag">Social Media</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- O QUE O FORMULÁRIO PEDE -->
+  <section class="info-section">
+    <p class="section-label">O que o briefing cobre</p>
+    <div class="info-grid">
+
+      <div class="info-card fade-up">
+        <span class="info-num">01</span>
+        <h3 class="info-title">Tipo de serviço</h3>
+        <p class="info-text">Qual das modalidades você precisa e qual é o objetivo final — o que o projeto precisa comunicar, transmitir ou resolver.</p>
+        <div class="info-examples">
+          <span class="info-example">Fan art</span>
+          <span class="info-example">Logo</span>
+          <span class="info-example">Post</span>
+          <span class="info-example">Retrato</span>
+        </div>
+      </div>
+
+      <div class="info-card fade-up">
+        <span class="info-num">02</span>
+        <h3 class="info-title">Descrição do projeto</h3>
+        <p class="info-text">Um texto livre contando tudo que você imagina — personagem, estilo, contexto, cores, sentimento. Sem julgamento, quanto mais detalhe melhor.</p>
+        <div class="info-examples">
+          <span class="info-example">Conceito</span>
+          <span class="info-example">Detalhes</span>
+          <span class="info-example">Contexto</span>
+        </div>
+      </div>
+
+      <div class="info-card fade-up">
+        <span class="info-num">03</span>
+        <h3 class="info-title">Referências visuais</h3>
+        <p class="info-text">Links, imagens ou descrições do estilo que você admira. Quanto mais referências, mais próximo o resultado chega do que você imagina.</p>
+        <div class="info-examples">
+          <span class="info-example">Pinterest</span>
+          <span class="info-example">Instagram</span>
+          <span class="info-example">Behance</span>
+        </div>
+      </div>
+
+      <div class="info-card fade-up">
+        <span class="info-num">04</span>
+        <h3 class="info-title">Prazo e urgência</h3>
+        <p class="info-text">Quando você precisa do projeto pronto. Prazos muito apertados podem ter uma taxa de urgência dependendo da complexidade.</p>
+        <div class="info-examples">
+          <span class="info-example">Sem pressa</span>
+          <span class="info-example">1–2 semanas</span>
+          <span class="info-example">Urgente</span>
+        </div>
+      </div>
+
+      <div class="info-card fade-up">
+        <span class="info-num">05</span>
+        <h3 class="info-title">Orçamento disponível</h3>
+        <p class="info-text">Uma faixa de valor ajuda a calibrar o escopo do projeto e garantir que o resultado caiba no seu bolso sem surpresas.</p>
+        <div class="info-examples">
+          <span class="info-example">Até R$100</span>
+          <span class="info-example">R$100–300</span>
+          <span class="info-example">Acima de R$300</span>
+        </div>
+      </div>
+
+      <div class="info-card fade-up">
+        <span class="info-num">06</span>
+        <h3 class="info-title">Redes sociais</h3>
+        <p class="info-text">Perfil do Instagram, YouTube ou site. Ajuda a entender o público, o tom de voz e o contexto onde o projeto vai viver e ser visto.</p>
+        <div class="info-examples">
+          <span class="info-example">Instagram</span>
+          <span class="info-example">YouTube</span>
+          <span class="info-example">Site</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GOOGLE FORMS -->
+  <section class="form-section" id="formulario">
+    <p class="section-label">Formulário</p>
+
+    <div class="form-header">
+      <h2 class="form-title fade-up">
+        Preencha o<br>seu <em>briefing</em>
+      </h2>
+      <div class="form-meta fade-up">
+        <div class="form-meta-item">Leva menos de 5 minutos para preencher</div>
+        <div class="form-meta-item">Resposta em até 24 horas úteis</div>
+        <div class="form-meta-item">Nenhum compromisso antes do orçamento</div>
+        <div class="form-meta-item">Todas as respostas são confidenciais</div>
+      </div>
+    </div>
+
+    <div class="gform-wrap" id="gformWrap">
+      <iframe
+        id="gformIframe"
+        src="https://docs.google.com/forms/d/e/1FAIpQLScJH4EbeZryEqAOGXLTT7iuBH-zgLyG8Ss8iK6k2stAmsNBQw/viewform?embedded=true"
+        title="Briefing — Vitu Studio"
+      ></iframe>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <p class="section-label">Dúvidas Frequentes</p>
+    <div class="faq-grid">
+
+      <div class="faq-item fade-up">
+        <h3 class="faq-q">Quanto tempo leva para receber uma resposta?</h3>
+        <p class="faq-a">Respondo todos os briefings em até 24 horas úteis com orçamento e prazo estimado. Se for urgente, entre em contato direto pelo WhatsApp.</p>
+      </div>
+
+      <div class="faq-item fade-up">
+        <h3 class="faq-q">Qual a diferença entre ilustração digital e mista?</h3>
+        <p class="faq-a">A digital é feita 100% em ambiente digital — tablet e software. A mista começa no papel, com nanquim ou aquarela, e termina com finalização e colorização digital.</p>
+      </div>
+
+      <div class="faq-item fade-up">
+        <h3 class="faq-q">Preciso saber exatamente o que quero?</h3>
+        <p class="faq-a">Não! O campo de descrição é completamente livre. Pode mandar suas ideias soltas, referências e dúvidas. Juntos definimos o escopo final antes de começar.</p>
+      </div>
+
+      <div class="faq-item fade-up">
+        <h3 class="faq-q">Como funciona o pagamento?</h3>
+        <p class="faq-a">50% na aprovação do orçamento e 50% na entrega final. Aceito Pix e transferência bancária. Nenhum trabalho começa sem o sinal confirmado.</p>
+      </div>
+
+      <div class="faq-item fade-up">
+        <h3 class="faq-q">Quantas revisões estão incluídas?</h3>
+        <p class="faq-a">Cada projeto inclui 2 rodadas de revisão sem custo adicional. Ajustes maiores fora do escopo original são orçados separadamente e combinados antes.</p>
+      </div>
+
+      <div class="faq-item fade-up">
+        <h3 class="faq-q">Posso pedir mais de um serviço ao mesmo tempo?</h3>
+        <p class="faq-a">Sim! Projetos combinados como ilustração + identidade visual são bem-vindos. Mencione no campo de descrição e avalio um pacote com condição especial.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-section">
+    <h2 class="cta-title fade-up">
+      Prefere<br>falar<br><em>comigo?</em>
+    </h2>
+    <div class="cta-right fade-up">
+      <p class="cta-text">
+        Se preferir uma conversa antes de preencher o formulário, pode me chamar
+        diretamente. Estou disponível para tirar dúvidas e entender o projeto
+        sem nenhum compromisso prévio.
+      </p>
+      <div class="cta-btns">
+        <a href="https://wa.me/554399674581" target="_blank" rel="noopener" class="btn-primary">WhatsApp</a>
+        <a href="https://instagram.com/studio_vitu" target="_blank" rel="noopener" class="btn-ghost">@studio_vitu ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span><em style="font-family:'Cormorant Garamond',serif;font-style:italic">Vitu</em> Studio</span>
+    <span>© 2026 Vítor Gabriel. Todos os direitos reservados.</span>
+  </footer>
+
+  <script>
+    // Scroll animations
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+    document.querySelectorAll('.hero .fade-up, .hero-right.fade-up').forEach((el, i) => {
+      setTimeout(() => el.classList.add('visible'), 200 + i * 160);
+    });
+
+    // Nav shadow
+    window.addEventListener('scroll', () => {
+      document.getElementById('mainNav').style.boxShadow =
+        window.scrollY > 60 ? '0 4px 24px rgba(0,0,0,0.06)' : 'none';
+    });
+
+    // Service cards — toggle seleção
+    document.querySelectorAll('.service-card').forEach(card => {
+      card.addEventListener('click', () => card.classList.toggle('selected'));
+    });
+  </script>
+</body>
+</html>
