@@ -5,10 +5,9 @@
 
 **Portfólio de Vítor Gabriel — Ilustração Digital · Edição · Identidade Visual**
 
-[![Deploy](https://img.shields.io/badge/deploy-Vercel-black?style=flat-square&logo=vercel)](https://vitustudio.vercel.app)
+[![Deploy](https://img.shields.io/badge/deploy-GitHub%20Pages-black?style=flat-square&logo=github)](https://lVitorSouza.github.io)
+[![LGPD](https://img.shields.io/badge/LGPD-conforme-4a7c59?style=flat-square)](https://lVitorSouza.github.io)
 [![License](https://img.shields.io/badge/licença-MIT-b8a898?style=flat-square)](LICENSE)
-[![LGPD](https://img.shields.io/badge/LGPD-conforme-4a7c59?style=flat-square)](https://vitustudio.vercel.app/briefing.html)
-
 </div>
 
 ---
@@ -17,7 +16,7 @@
 
 Site de portfólio profissional da **Vitu Studio**, estúdio criativo de Vítor Gabriel, sediado em Londrina, PR. O projeto reúne trabalhos de ilustração digital e mista, edição fotográfica e identidade visual, com sistema de briefing integrado e formulário de contato seguro.
 
-**Acesse:** [vitustudio.vercel.app](https://vitustudio.vercel.app)
+**Acesse:** [lVitorSouza.github.io](https://lVitorSouza.github.io)
 
 ---
 
