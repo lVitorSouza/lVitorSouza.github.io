@@ -28,7 +28,7 @@ const projects = [
     {
         category: 'ilustracao',
         title: 'Deusa do Amor',
-        description: 'Arte em grafite com traços expressivos',
+        description: 'Arte em grafite com traços expressivas',
         image: 'deusa do amor.jpg'
     },
     {
@@ -143,7 +143,7 @@ const projects = [
         description: 'Recomendações para proteção de dados pessoais',
         image: 'imagem6.png'
     },
-       {
+    {
         category: 'identidade',
         title: 'Design de Logotipo Froggi',
         description: 'Design criativo para identidade visual de marca',
@@ -151,20 +151,20 @@ const projects = [
     },
     {
         category: 'identidade',
-        title: 'Dicas para sua segurança na internet',
-        description: 'Design criativo para identidade visual de marca',
+        title: 'Campanha de Segurança Digital',
+        description: 'Peça visual para campanha de conscientização digital',
         image: 'pequenoss.png'
     },
     {
         category: 'identidade',
-        title: 'Design de Logomarca para P & S',
+        title: 'Logomarca P & S — Ícone',
         description: 'Ícone para a construção da logomarca',
         image: 'froggi.png'
     },
     {
         category: 'identidade',
-        title: 'Design de Logomarca para P & S',
-        description: 'Ícone para a construção da logomarca',
+        title: 'Logomarca P & S — Versão Completa',
+        description: 'Aplicação completa da logomarca com tipografia',
         image: 'froggi learnirg.png'
     },
 ];
@@ -335,5 +335,52 @@ if (window.innerWidth > 768) {
     document.querySelectorAll('a, button, .project-card').forEach(el => {
         el.addEventListener('mouseenter', () => cursor.style.transform = 'scale(1.5)');
         el.addEventListener('mouseleave', () => cursor.style.transform = 'scale(1)');
+    });
+}
+
+// ========== CONTACT FORM ==========
+const cfSubmit = document.getElementById('cf-submit');
+
+if (cfSubmit) {
+    cfSubmit.addEventListener('click', async () => {
+        const name    = document.getElementById('cf-name').value.trim();
+        const email   = document.getElementById('cf-email').value.trim();
+        const message = document.getElementById('cf-message').value.trim();
+        const website = document.getElementById('cf-honeypot')?.value || '';
+
+        const feedback = document.getElementById('cf-feedback');
+        feedback.textContent = '';
+        feedback.className = 'cf-feedback';
+
+        if (!name || !email || !message) {
+            feedback.textContent = 'Preencha todos os campos.';
+            feedback.classList.add('error');
+            return;
+        }
+
+        try {
+            const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, message, website })
+            });
+
+            const data = await res.json();
+
+            if (res.ok) {
+                feedback.textContent = '✓ Mensagem enviada com sucesso!';
+                feedback.classList.add('success');
+                document.getElementById('cf-name').value    = '';
+                document.getElementById('cf-email').value   = '';
+                document.getElementById('cf-message').value = '';
+            } else {
+                feedback.textContent = data.error || 'Erro ao enviar.';
+                feedback.classList.add('error');
+            }
+
+        } catch (err) {
+            feedback.textContent = 'Erro de conexão.';
+            feedback.classList.add('error');
+        }
     });
 }

@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express    = require('express');
 const nodemailer = require('nodemailer');
 const cors       = require('cors');
@@ -13,19 +15,15 @@ app.use(express.static('public'));
 // ════════════════════════════════════════════
 //  PROTEÇÃO 1 — RATE LIMITING
 //  Máximo de 5 envios por IP a cada 15 minutos.
-//  Se ultrapassar, bloqueia com erro 429.
-//  Feito sem biblioteca extra — Map simples em memória.
 // ════════════════════════════════════════════
-const RATE_LIMIT_MAX      = 5;    // tentativas permitidas
-const RATE_LIMIT_WINDOW   = 15 * 60 * 1000; // 15 minutos em ms
-const ipRequests          = new Map(); // { ip: [timestamps] }
+const RATE_LIMIT_MAX    = 5;
+const RATE_LIMIT_WINDOW = 15 * 60 * 1000;
+const ipRequests        = new Map();
 
 function rateLimiter(req, res, next) {
-  // Pega o IP real mesmo atrás de proxy (Vercel)
   const ip  = req.headers['x-forwarded-for']?.split(',')[0]?.trim() || req.socket.remoteAddress || 'unknown';
-  const now  = Date.now();
+  const now = Date.now();
 
-  // Pega histórico do IP, filtra só os que ainda estão na janela de tempo
   const timestamps = (ipRequests.get(ip) || []).filter(t => now - t < RATE_LIMIT_WINDOW);
 
   if (timestamps.length >= RATE_LIMIT_MAX) {
@@ -36,13 +34,10 @@ function rateLimiter(req, res, next) {
     });
   }
 
-  // Registra este acesso
   timestamps.push(now);
   ipRequests.set(ip, timestamps);
 
-  // Limpeza automática: remove IPs sem atividade recente a cada 30 min
-  // para não acumular memória indefinidamente
-  if (Math.random() < 0.05) { // roda em ~5% das requisições
+  if (Math.random() < 0.05) {
     for (const [key, val] of ipRequests.entries()) {
       if (val.every(t => now - t >= RATE_LIMIT_WINDOW)) ipRequests.delete(key);
     }
@@ -53,15 +48,11 @@ function rateLimiter(req, res, next) {
 
 // ════════════════════════════════════════════
 //  PROTEÇÃO 2 — HONEYPOT
-//  O formulário tem um campo oculto chamado "website".
-//  Humanos não o veem e não preenchem.
-//  Bots preenchem tudo automaticamente → bloqueado.
 // ════════════════════════════════════════════
 function honeypotCheck(req, res, next) {
-  const { website } = req.body; // campo armadilha
+  const { website } = req.body;
   if (website && website.trim() !== '') {
     console.warn('[HONEYPOT] Bot detectado e bloqueado.');
-    // Responde 200 para não revelar ao bot que foi detectado
     return res.status(200).json({ success: true });
   }
   next();
@@ -69,8 +60,6 @@ function honeypotCheck(req, res, next) {
 
 // ════════════════════════════════════════════
 //  PROTEÇÃO 3 — SANITIZAÇÃO DE INPUT
-//  Remove tags HTML do input para evitar XSS
-//  caso o conteúdo seja exibido em algum lugar.
 // ════════════════════════════════════════════
 function sanitize(str = '') {
   return String(str)
@@ -91,30 +80,26 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// ── Rota de contato — com todas as proteções aplicadas
+// ── Rota de contato
 app.post('/api/contact', rateLimiter, honeypotCheck, async (req, res) => {
   const name    = sanitize(req.body.name);
   const email   = sanitize(req.body.email);
   const message = sanitize(req.body.message);
 
-  // Validação de campos
   if (!name || !email || !message) {
     return res.status(400).json({ error: 'Preencha todos os campos.' });
   }
 
-  // Validação de e-mail
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
     return res.status(400).json({ error: 'E-mail inválido.' });
   }
 
-  // Limite de tamanho — evita payloads gigantes
   if (name.length > 100 || email.length > 150 || message.length > 2000) {
     return res.status(400).json({ error: 'Conteúdo muito longo.' });
   }
 
   try {
-    // E-mail que você recebe
     await transporter.sendMail({
       from:    `"Vitu Studio — Contato" <${process.env.EMAIL_USER}>`,
       to:      'vitustudio2026@gmail.com',
@@ -133,7 +118,6 @@ app.post('/api/contact', rateLimiter, honeypotCheck, async (req, res) => {
       `,
     });
 
-    // Confirmação para quem enviou
     await transporter.sendMail({
       from:    `"Vítor Gabriel — Vitu Studio" <${process.env.EMAIL_USER}>`,
       to:      email,
